@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+<title>usuń Zwierzę</title>
+</head>
+<body>
+<h1>Usuń Zwierzę</h1>
+<div class="center_content">
+<form name="usunzwierze" method="post" action="/SchroniskoAPP/RemoveFromDBServlet">
+    id <input type="text" name="id"/> <br/>
+   
+    <input type="submit" value="usun record z bazy danych" />
+
+</form>
+<form name="maintenance" method="post" action="/SchroniskoAPP/AddToDBServlet">
+
+ <button onclick="self.close()">Zamknij</button>
+</form>
+ </div>
+</body>
+</html>

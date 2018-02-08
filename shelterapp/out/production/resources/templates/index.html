@@ -1,10 +1,53 @@
-<!DOCTYPE HTML>
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"/>
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8"/>
+<style type="text/css" media="all">
+</style>
+<title>strona glowna</title>
 </head>
+
 <body>
-<p>Get your greeting <a href="/greeting">here</a></p>
+<div class="left">
+<form action="/SchroniskoAPP/MenuServlet" method="post" target="_blank">
+    <input type="submit" name="b1" value="Dodaj Zwierze" /><br/>
+    <input type="submit" name="b2" value="Usun Zwierze" /><br/>
+    
+</form>
+<form action="/SchroniskoAPP/MenuServlet" method="post" target="_blank">
+    <input type="submit" name="b3" value="Edytuj Wpis" /><br/>
+</form>
+</div>
+ <div class="right">   
+
+<form action="/SchroniskoAPP/LogoutServlet" method="post">
+<input type="submit" name="b3" value="Wyloguj" /><br/>
+</form>
+</div>
+<br/>
+<div class="center_content">
+<h1>Lista Zwierząt</h1>  
+  
+
+  
+<table border="1" width="90%">  
+<tr><th>Id</th><th>Imie</th><th>Plec</th><th>Wiek</th>   
+<th>Waga</th><th>Opiekun</th></tr>
+    <tr th:each="Zwierze : ${listaZ}">
+        <td th:text="${Zwierze.getId()}"></td>
+        <td th:text="${Zwierze.getImie()}"></td>
+        <td th:text="${Zwierze.getPlec()}"></td>
+        <td th:text="${Zwierze.getWiek()}"></td>
+        <td th:text="${Zwierze.getWaga()}"></td>
+        <td th:text="${Zwierze.getOpiekun()}"></td>
+
+    </tr>
+</table>
+
+
+
+</div>
 </body>
 </html>

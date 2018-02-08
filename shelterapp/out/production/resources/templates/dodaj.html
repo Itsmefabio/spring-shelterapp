@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+
+<title>Dodaj Zwierzę</title>
+</head>
+<body>
+<h1>Dodaj Zwierzę</h1>
+<div class="center_content">
+<form name="dodaj" method="post" action="http://localhost:8080/SchroniskoAPP/AddToDBServlet">
+    imie: <input type="text" name="imie"/> <br/>
+    <!--plec <input type="radio" name="plec" value="samiec" checked> samiec	-->
+  <!--<input type="radio" name="plec" value="samica"> samica<br>-->
+     wiek: <input type="text" name="wiek"/> <br/>
+      waga: <input type="text" name="waga"/> <br/>
+      opiekun: <input type="text" name="opiekun"/> <br/>
+     
+    <input type="submit" value="Dodaj do bazy danych" />
+    <br/>
+    <br/>
+</form>
+<form name="maintenance" method="post" action="http://localhost:8080/SchroniskoAPP/AddToDBServlet">
+
+ <button onclick="self.close()">Zamknij</button>
+</form>
+</div>
+</body>
+</html>
