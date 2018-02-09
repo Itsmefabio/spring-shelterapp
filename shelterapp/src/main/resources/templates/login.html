@@ -1,20 +1,68 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8"/>
 <title>Manager Schroniska-Strona Logowania</title>
 </head>
+<style>
+    .right {
+        float: right;
+        background-color: CadetBlue;
+        border: 3px solid #73AD21;
+        padding: 5px;
+        margin-left:0px;
+        width: 150px;
+    }
+    .center_content {
+        position: relative;
+        background-color: CadetBlue;
+        border: 3px solid #73AD21;
+        margin:70px;
+        padding: 30px 30px;
+        border: 3px solid green;
+        text-align: center;
+    }
+    .right_content {
+        background-color: CadetBlue;
+        border: 3px solid #73AD21;
+        padding: 5px;
+        margin: 0px 170px 0px 170px;
+    }
+    h1{
+        text-align: center;
+    }
+    .left {
+        float: left;
+        background-color: CadetBlue;
+        border: 3px solid #73AD21;
+        padding: 5px;
+        width: 150px;
+    }
+    .left_content {
+        background-color: CadetBlue;
+        border: 3px solid #73AD21;;
+        padding: 5px;
+        margin: 170px 0px 0x 170px;
+    }
+</style>
 <body>
 <h1>Strona Logowania</h1>
 
-<div class="center_content" >
-<form name="loginForm" method="post" action="LoginServlet">
-    Użytkownik: <input type="text" name="username"/> <br/>
-    Hasło:      <input type="password" name="password"/> <br/>
-    <input type="submit" value="Zaloguj" />
-    
-</form>
+    <div class="center_content" >
+    <!--<<div th:if="${param.error}">-->
+        <!--Invalid username and password.-->
+    <!--</div>-->
+    <!--<div th:if="${param.logout}">-->
+        <!--You have been logged out.-->
+    <!--</div>-->
+    <form th:action="@{/login}" method="post">
+         Użytkownik : <input type="text" name="username"/>
+         Hasło: <input type="password" name="password"/>
+         <input type="submit" value="Sign In"/>
+    </form>
+
 </div>
 </body>
 </html>

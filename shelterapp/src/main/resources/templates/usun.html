@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pl"
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8"/>
-<title>usuń Zwierzę</title>
+    <title>usuń Zwierzę</title>
 </head>
 <body>
 <style>
@@ -14,27 +13,31 @@
         background-color: CadetBlue;
         border: 3px solid #73AD21;
         padding: 5px;
-        margin-left:0px;
+        margin-left: 0px;
         width: 150px;
     }
+
     .center_content {
         position: relative;
         background-color: CadetBlue;
         border: 3px solid #73AD21;
-        margin:70px;
+        margin: 70px;
         padding: 30px 30px;
         border: 3px solid green;
         text-align: center;
     }
+
     .right_content {
         background-color: CadetBlue;
         border: 3px solid #73AD21;
         padding: 5px;
         margin: 0px 170px 0px 170px;
     }
-    h1{
+
+    h1 {
         text-align: center;
     }
+
     .left {
         float: left;
         background-color: CadetBlue;
@@ -42,6 +45,7 @@
         padding: 5px;
         width: 150px;
     }
+
     .left_content {
         background-color: CadetBlue;
         border: 3px solid #73AD21;;
@@ -49,18 +53,27 @@
         margin: 170px 0px 0x 170px;
     }
 </style>
+<div class="right">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Wyloguj"/>
+    </form>
+
+</div>
 <h1>Usuń Zwierzę</h1>
+
 <div class="center_content">
 
 
     <form action="#" th:action="@{/usun}" th:object="${zwierze}" method="post">
-        <p>Id: <input type="text" th:field="*{id}" /></p>
-        <p><input type="submit" value="Usuń Zwierzę" /></p>
-    </form>
-<form name="maintenance" method="post" action="/SchroniskoAPP/AddToDBServlet">
+        <p>Id: <input type="text" th:field="*{id}"/></p>
+        <p><input type="submit" value="Usuń Zwierzę"/></p>
 
- <button onclick="self.close()">Zamknij</button>
-</form>
- </div>
+
+    </form>
+    <br/>
+    <br/>
+    <A HREF="/index">Powrót</A><br/>
+</div>
+
 </body>
 </html>

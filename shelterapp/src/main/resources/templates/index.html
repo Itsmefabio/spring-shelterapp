@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="pl"
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-<style type="text/css" media="all">
-</style>
-<title>strona glowna</title>
+    <style type="text/css" media="all">
+    </style>
+    <title>strona glowna</title>
 </head>
 
 <body>
@@ -16,27 +15,31 @@
         background-color: CadetBlue;
         border: 3px solid #73AD21;
         padding: 5px;
-        margin-left:0px;
+        margin-left: 0px;
         width: 150px;
     }
+
     .center_content {
         position: relative;
         background-color: CadetBlue;
         border: 3px solid #73AD21;
-        margin:70px;
+        margin: 70px;
         padding: 30px 30px;
         border: 3px solid green;
         text-align: center;
     }
+
     .right_content {
         background-color: CadetBlue;
         border: 3px solid #73AD21;
         padding: 5px;
         margin: 0px 170px 0px 170px;
     }
-    h1{
+
+    h1 {
         text-align: center;
     }
+
     .left {
         float: left;
         background-color: CadetBlue;
@@ -44,6 +47,7 @@
         padding: 5px;
         width: 150px;
     }
+
     .left_content {
         background-color: CadetBlue;
         border: 3px solid #73AD21;;
@@ -58,30 +62,36 @@
 
 
 </div>
- <div class="right">
-     <A HREF="/wyloguj">Wyloguj</A><br/>
+<div class="right">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Wyloguj"/>
+    </form>
 
 </div>
 <br/>
 <div class="center_content">
-<h1>Lista Zwierząt</h1>  
-  
+    <h1>Lista Zwierząt</h1>
 
-  
-<table border="1" width="90%">  
-<tr><th>Id</th><th>Imie</th><th>Plec</th><th>Wiek</th>   
-<th>Waga</th><th>Opiekun</th></tr>
-    <tr th:each="Zwierze : ${listaZ}">
-        <td th:text="${Zwierze.getId()}"></td>
-        <td th:text="${Zwierze.getImie()}"></td>
-        <td th:text="${Zwierze.getPlec()}"></td>
-        <td th:text="${Zwierze.getWiek()}"></td>
-        <td th:text="${Zwierze.getWaga()}"></td>
-        <td th:text="${Zwierze.getOpiekun()}"></td>
 
-    </tr>
-</table>
+    <table border="1" width="90%">
+        <tr>
+            <th>Id</th>
+            <th>Imie</th>
+            <th>Plec</th>
+            <th>Wiek</th>
+            <th>Waga</th>
+            <th>Opiekun</th>
+        </tr>
+        <tr th:each="Zwierze : ${listaZ}">
+            <td th:text="${Zwierze.getId()}"></td>
+            <td th:text="${Zwierze.getImie()}"></td>
+            <td th:text="${Zwierze.getPlec()}"></td>
+            <td th:text="${Zwierze.getWiek()}"></td>
+            <td th:text="${Zwierze.getWaga()}"></td>
+            <td th:text="${Zwierze.getOpiekun()}"></td>
 
+        </tr>
+    </table>
 
 
 </div>
