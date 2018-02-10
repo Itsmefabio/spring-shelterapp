@@ -1,6 +1,9 @@
 package com.dmigus.shelterapp.beans;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name="zwierzeta")
@@ -29,19 +32,19 @@ public class Zwierze {
         this.plec = plec;
     }
 
-    public int getWiek() {
+    public double getWiek() {
         return wiek;
     }
 
-    public void setWiek(int wiek) {
+    public void setWiek(double wiek) {
         this.wiek = wiek;
     }
 
-    public int getWaga() {
+    public float getWaga() {
         return waga;
     }
 
-    public void setWaga(int waga) {
+    public void setWaga(float waga) {
         this.waga = waga;
     }
 
@@ -56,11 +59,19 @@ public class Zwierze {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
+    @NotNull
+    @Size(min=2, max=50)
     private String imie;
+    @NotNull
     private String plec;
-    private int wiek;
-    private int waga;
+    @NotNull
+    private double wiek;
+    @NotNull
+    private float waga;
+    @NotNull
+    @Size(min=2, max=50)
     private String opiekun;
 
     @Override

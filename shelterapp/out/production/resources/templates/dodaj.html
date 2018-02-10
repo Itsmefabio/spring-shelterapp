@@ -60,7 +60,9 @@
 <div class="center_content">
 
     <form action="#" th:action="@{/dodaj}" th:object="${zwierze}" method="post">
-        <p>Imię: <input type="text" th:field="*{imie}" /></p>
+      <td>imie</td>  <td><input type="text" th:field="*{imie}" /></td>
+        <td th:if="${#fields.hasErrors('imie')}" th:errors="*{imie}">Imie Error</td>
+       ff
         <p>Pleć: <input type="text" th:field="*{plec}" /></p>
         <p>Wiek <input type="text" th:field="*{wiek}" /></p>
         <p>Waga <input type="text" th:field="*{waga}" /></p>
