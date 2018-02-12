@@ -26,13 +26,13 @@ public class MainController {
         return "login";
     }
 
+
     @RequestMapping({"/index", "/"})
     public String index(Model model) {
 
         List<Zwierze> listaZ = zwierzeRepository.findAll();
         model.addAttribute("listaZ", listaZ);
-        return "index";
-    }
+       return "index";}
 
     @RequestMapping("/dodaj")
     public String dodaj(Model model) {

@@ -3,6 +3,7 @@ package com.dmigus.shelterapp.beans;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Arrays;
 
 
 @Entity
@@ -73,6 +74,17 @@ public class Zwierze {
     @NotNull
     @Size(min=2, max=50)
     private String opiekun;
+    @Lob
+    @Column(name="zdjecie")
+    private byte[] zdjecie;
+
+    public byte[] getZdjecie() {
+        return zdjecie;
+    }
+
+    public void setZdjecie(byte[] zdjecie) {
+        this.zdjecie = zdjecie;
+    }
 
     @Override
     public String toString() {
@@ -83,6 +95,7 @@ public class Zwierze {
                 ", wiek=" + wiek +
                 ", waga=" + waga +
                 ", opiekun='" + opiekun + '\'' +
+                ", zdjecie=" + Arrays.toString(zdjecie) +
                 '}';
     }
 }

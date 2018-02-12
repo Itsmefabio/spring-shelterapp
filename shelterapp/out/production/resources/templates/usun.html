@@ -28,7 +28,8 @@
 
 
     <form action="#" th:action="@{/usun}" th:object="${zwierze}" method="post">
-        <div class="label"><label for="id">Id: </label></div>  <input type="text" id="id" th:field="*{id}" placeholder="Podaj Id Zwierzęcia"/>
+        <div class="label"><label for="id">Id: </label></div>
+        <input type="text" id="id" th:field="*{id}" placeholder="Podaj Id Zwierzęcia"/>
         <p><input type="submit" value="Usuń Zwierzę"/></p>
 
 

@@ -5,7 +5,10 @@
     <meta charset="UTF-8"/>
 
     <title>Manager Schroniska-Strona Logowania</title>
-    <link th:href="@{static/css/style.css}" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body>
 <style>
 
     .center_content {
@@ -132,23 +135,28 @@
         font-size: 16px;
     }
 
+    param {
+        font-size: 18px;
+        color: red;
+    }
+
 
 </style>
-</head>
-
-<body>
-
 
 <h1>Manager Schroniska "Święty Spokój"</h1><br/>
 <h2>Strona Logowania</h2>
 
 <div class="center_content">
-    <!--<<div th:if="${param.error}">-->
-    <!--Invalid username and password.-->
-    <!--</div>-->
-    <!--<div th:if="${param.logout}">-->
-    <!--You have been logged out.-->
-    <!--</div>-->
+    <br/>
+    <div style="font-size: 18px; color: red;font-variant: small-caps;" th:if="${param.error}">
+
+        Błędne dane logowania.
+    </div>
+    <br/>
+    <div style="font-size: 18px; color: blue;font-variant: small-caps;" th:if="${param.logout}">
+        Wylogowano Pomyślnie.
+    </div>
+    <br/>
     <form th:action="@{/login}" method="post">
 
         <div class="label">

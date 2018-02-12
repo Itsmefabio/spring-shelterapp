@@ -36,11 +36,12 @@
         <table border="2" width="90%">
             <tr>
                 <th>Id</th>
-                <th>Imie</th>
-                <th>Plec</th>
+                <th>Imię</th>
+                <th>Płeć</th>
                 <th>Wiek</th>
                 <th>Waga</th>
                 <th>Opiekun</th>
+                <th>Zdjęcie</th>
             </tr>
             <tr th:each="Zwierze : ${listaZ}">
                 <td th:text="${Zwierze.getId()}"></td>
@@ -49,6 +50,7 @@
                 <td th:text="${Zwierze.getWiek()}"></td>
                 <td th:text="${Zwierze.getWaga()}"></td>
                 <td th:text="${Zwierze.getOpiekun()}"></td>
+                <td th:file="${Zwierze.getzdjecie())}"></td>
 
             </tr>
         </table>
