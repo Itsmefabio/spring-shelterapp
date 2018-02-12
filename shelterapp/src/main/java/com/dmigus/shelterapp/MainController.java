@@ -4,6 +4,7 @@ import com.dmigus.shelterapp.api.ZwierzeRepository;
 import com.dmigus.shelterapp.beans.Zwierze;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,7 +45,7 @@ public class MainController {
 
 
         zwierzeRepository.save(zwierze);
-        return "dodaj";
+        return "redirect:index";
     }
 
     @GetMapping("/usun")
@@ -61,7 +62,7 @@ public class MainController {
         zwierzeRepository.delete(zwierze);
 
 
-        return "usun";
+        return "redirect:index";
     }
 
     @RequestMapping("/edycja")
@@ -77,6 +78,6 @@ public class MainController {
         zwierzeRepository.save(zwierze);
 
 
-        return "edycja";
+        return "redirect:index";
     }
 }

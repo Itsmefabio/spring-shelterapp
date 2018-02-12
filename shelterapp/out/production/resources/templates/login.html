@@ -1,66 +1,165 @@
-
 <!DOCTYPE html>
 <html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8"/>
-<title>Manager Schroniska-Strona Logowania</title>
-</head>
+
+    <title>Manager Schroniska-Strona Logowania</title>
+    <link th:href="@{static/css/style.css}" rel="stylesheet" type="text/css"/>
 <style>
-    .right {
-        float: right;
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        margin-left:0px;
-        width: 150px;
-    }
+
     .center_content {
         position: relative;
         background-color: CadetBlue;
         border: 3px solid #73AD21;
-        margin:70px;
+        margin: 200px;
+        padding: 20px 20px;
+        border: 3px solid green;
+        text-align: center;
+        font-family: "Arial Rounded MT Bold";
+
+    }
+
+    h1, h2 {
+        text-align: center;
+        font-family: "Arial Rounded MT Bold";
+    }
+
+    input[type=text]:focus {
+        border: 3px solid #555;
+    }
+
+    input[type=password]:focus {
+        border: 3px solid #555;
+    }
+
+    input[type=text], select {
+        width: 60%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    input[type=password], select {
+        width: 60%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    input[type=submit]:hover {
+
+    }
+
+    input[type=submit] {
+        padding: 14px 80px;
+
+        font-size: 16px;
+    }
+
+    label {
+        font-size: 18px;
+        font-variant: small-caps;
+        text-align: right;
+    }
+
+    .center_content {
+        position: relative;
+        background-color: CadetBlue;
+        border: 3px solid #73AD21;
+        margin: 70px;
         padding: 30px 30px;
         border: 3px solid green;
         text-align: center;
     }
-    .right_content {
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        margin: 0px 170px 0px 170px;
-    }
-    h1{
+
+    h1 {
         text-align: center;
     }
-    .left {
-        float: left;
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        width: 150px;
-    }
-    .left_content {
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;;
-        padding: 5px;
-        margin: 170px 0px 0x 170px;
-    }
-</style>
-<body>
-<h1>Strona Logowania</h1>
 
-    <div class="center_content" >
+    table {
+        font-size: 16px;
+        font-variant: small-caps;
+        font-family: "Arial Rounded MT Bold";
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: CadetBlue;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+
+    }
+
+    li a:hover:not(.active) {
+        background-color: #73AD21;
+    }
+
+    .active {
+        background-color: #73AD21;
+    }
+
+    input[type=submit]:hover {
+
+    }
+
+    input[type=submit] {
+        padding: 14px 25px;
+
+        font-size: 16px;
+    }
+
+
+</style>
+</head>
+
+<body>
+
+
+<h1>Manager Schroniska "Święty Spokój"</h1><br/>
+<h2>Strona Logowania</h2>
+
+<div class="center_content">
     <!--<<div th:if="${param.error}">-->
-        <!--Invalid username and password.-->
+    <!--Invalid username and password.-->
     <!--</div>-->
     <!--<div th:if="${param.logout}">-->
-        <!--You have been logged out.-->
+    <!--You have been logged out.-->
     <!--</div>-->
     <form th:action="@{/login}" method="post">
-         Użytkownik : <input type="text" name="username"/>
-         Hasło: <input type="password" name="password"/>
-         <input type="submit" value="Sign In"/>
+
+        <div class="label">
+            <label for="u">Użytkownik: </label>
+        </div>
+        <input type="text" id="u" name="username" placeholder="Podaj Nazwę Użytkownika"/> <br/>
+        <div class="label">
+            <label for="p">Hasło: </label>
+        </div>
+        <input type="password" id="p" name="password" placeholder="Podaj Hasło"/> <br/>
+        <input type="submit" value="Zaloguj"/>
     </form>
 
 </div>

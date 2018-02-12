@@ -3,78 +3,41 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-
+    <link th:href="@{static/css/style.css}" rel="stylesheet" type="text/css"/>
     <title>Dodaj Zwierzę</title>
 </head>
 <body>
-<style>
-    .right {
-        float: right;
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        margin-left: 0px;
-        width: 150px;
-    }
-
-    .center_content {
-        position: relative;
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        margin: 70px;
-        padding: 30px 30px;
-        border: 3px solid green;
-        text-align: center;
-    }
-
-    .right_content {
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        margin: 0px 170px 0px 170px;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-    .left {
-        float: left;
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        width: 150px;
-    }
-
-    .left_content {
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;;
-        padding: 5px;
-        margin: 170px 0px 0x 170px;
-    }
-</style>
-<div class="right">
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Wyloguj"/>
-    </form>
-
-</div>
-<h1>Dodaj Zwierzę</h1>
+<ul>
+    <li><a href="/dodaj">Dodaj Zwierzę</a></li>
+    <li><a href="/usun">Usuń Zwierzę</a></li>
+    <li><a href="/edycja">Edytuj</a></li>
+    <li style="float:right">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Wyloguj"/>
+        </form>
+    </li>
+</ul>
+<br/>
+<br/>
+<br/>
+<h1>Dodaj Nowego Mieszkańca</h1>
 
 <div class="center_content">
 
     <form action="#" th:action="@{/dodaj}" th:object="${zwierze}" method="post">
-        <p>Imię: <input type="text" th:field="*{imie}"
-                        th:if="${#fields.hasErrors('imie')}" th:errors="*{imie}">Imie Error
-        <p>Pleć: <input type="text" th:field="*{plec}"/></p>
-        <p>Wiek <input type="text" th:field="*{wiek}"/></p>
-        <p>Waga <input type="text" th:field="*{waga}"/></p>
-        <p>Opiekun <input type="text" th:field="*{opiekun}"/></p>
+
+
+         <div class="label"><label for="imie">Imię: </label></div>  <input type="text" id="imie" th:field="*{imie}" placeholder="Podaj imię Zwierzęcia"/>
+                        <!--th:if="${#fields.hasErrors('imie')}" th:errors="*{imie}">Imie Error-->
+        <div class="label"><label for="plec">Płeć: </label></div>  <input type="text" id="plec" th:field="*{plec}" placeholder="Podaj płeć Zwierzęcia"/>
+        <div class="label"><label for="wiek">Wiek: </label></div>  <input type="text" id="wiek" th:field="*{wiek}" placeholder="Podaj wiek Zwierzęcia"/>
+        <div class="label"><label for="waga">Waga: </label></div>  <input type="text" id="waga" th:field="*{imie}" placeholder="Podaj Wagę Zwierzęcia"/>
+        <div class="label"><label for="opiekun">Opiekun: </label></div>  <input type="text" id="opiekun" th:field="*{opiekun}" placeholder="Podaj imię i nazwisko Przypisanego opiekuna"/>
         <p><input type="submit" value="Dodaj Zwierzę"/></p>
     </form>
     <br/>
     <br/>
-    <A HREF="/index">Powrót</A><br/>
+
 
 </div>
 

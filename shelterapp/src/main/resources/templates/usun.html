@@ -4,75 +4,38 @@
 
 <head>
     <meta charset="UTF-8"/>
+    <link th:href="@{static/css/style.css}" rel="stylesheet" type="text/css"/>
     <title>usuń Zwierzę</title>
 </head>
 <body>
-<style>
-    .right {
-        float: right;
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        margin-left: 0px;
-        width: 150px;
-    }
+<ul>
+    <li><a href="/dodaj">Dodaj Zwierzę</a></li>
+    <li><a href="/usun">Usuń Zwierzę</a></li>
+    <li><a href="/edycja">Edytuj</a></li>
+    <li style="float:right">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Wyloguj"/>
+        </form>
+    </li>
+</ul>
+<br/>
+<br/>
+<br/>
 
-    .center_content {
-        position: relative;
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        margin: 70px;
-        padding: 30px 30px;
-        border: 3px solid green;
-        text-align: center;
-    }
-
-    .right_content {
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        margin: 0px 170px 0px 170px;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-    .left {
-        float: left;
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        width: 150px;
-    }
-
-    .left_content {
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;;
-        padding: 5px;
-        margin: 170px 0px 0x 170px;
-    }
-</style>
-<div class="right">
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Wyloguj"/>
-    </form>
-
-</div>
-<h1>Usuń Zwierzę</h1>
+<h1>Usuń Informacje o Mieszkańcu</h1>
 
 <div class="center_content">
 
 
     <form action="#" th:action="@{/usun}" th:object="${zwierze}" method="post">
-        <p>Id: <input type="text" th:field="*{id}"/></p>
+        <div class="label"><label for="id">Id: </label></div>  <input type="text" id="id" th:field="*{id}" placeholder="Podaj Id Zwierzęcia"/>
         <p><input type="submit" value="Usuń Zwierzę"/></p>
 
 
     </form>
     <br/>
     <br/>
-    <A HREF="/index">Powrót</A><br/>
+
 </div>
 
 </body>

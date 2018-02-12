@@ -3,96 +3,56 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <style type="text/css" media="all">
-    </style>
-    <title>strona glowna</title>
+    <link th:href="@{static/css/style.css}" rel="stylesheet" type="text/css"/>
+
+    <title>strona główna</title>
 </head>
 
 <body>
-<style>
-    .right {
-        float: right;
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        margin-left: 0px;
-        width: 150px;
-    }
 
-    .center_content {
-        position: relative;
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        margin: 70px;
-        padding: 30px 30px;
-        border: 3px solid green;
-        text-align: center;
-    }
-
-    .right_content {
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        margin: 0px 170px 0px 170px;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-    .left {
-        float: left;
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;
-        padding: 5px;
-        width: 150px;
-    }
-
-    .left_content {
-        background-color: CadetBlue;
-        border: 3px solid #73AD21;;
-        padding: 5px;
-        margin: 170px 0px 0x 170px;
-    }
-</style>
-<div class="left">
-    <A HREF="/dodaj">Dodaj Zwierzę</A><br/>
-    <A HREF="/usun">Usuń Zwierzę</A><br/>
-    <A HREF="/edycja">Edytuj dane Zwierzęcia</A><br/>
+<ul>
+    <li><a href="/dodaj">Dodaj Zwierzę</a></li>
+    <li><a href="/usun">Usuń Zwierzę</a></li>
+    <li><a href="/edycja">Edytuj</a></li>
+    <li style="float:right">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Wyloguj"/>
+        </form>
+    </li>
+</ul>
 
 
-</div>
-<div class="right">
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Wyloguj"/>
-    </form>
+<br/>
+<br/>
+<br/>
 
-</div>
+<h1>Lista Mieszkańców</h1>
+<br/>
 <br/>
 <div class="center_content">
-    <h1>Lista Zwierząt</h1>
 
 
-    <table border="1" width="90%">
-        <tr>
-            <th>Id</th>
-            <th>Imie</th>
-            <th>Plec</th>
-            <th>Wiek</th>
-            <th>Waga</th>
-            <th>Opiekun</th>
-        </tr>
-        <tr th:each="Zwierze : ${listaZ}">
-            <td th:text="${Zwierze.getId()}"></td>
-            <td th:text="${Zwierze.getImie()}"></td>
-            <td th:text="${Zwierze.getPlec()}"></td>
-            <td th:text="${Zwierze.getWiek()}"></td>
-            <td th:text="${Zwierze.getWaga()}"></td>
-            <td th:text="${Zwierze.getOpiekun()}"></td>
+    <div id="table">
+        <table border="2" width="90%">
+            <tr>
+                <th>Id</th>
+                <th>Imie</th>
+                <th>Plec</th>
+                <th>Wiek</th>
+                <th>Waga</th>
+                <th>Opiekun</th>
+            </tr>
+            <tr th:each="Zwierze : ${listaZ}">
+                <td th:text="${Zwierze.getId()}"></td>
+                <td th:text="${Zwierze.getImie()}"></td>
+                <td th:text="${Zwierze.getPlec()}"></td>
+                <td th:text="${Zwierze.getWiek()}"></td>
+                <td th:text="${Zwierze.getWaga()}"></td>
+                <td th:text="${Zwierze.getOpiekun()}"></td>
 
-        </tr>
-    </table>
-
+            </tr>
+        </table>
+    </div>
 
 </div>
 </body>
