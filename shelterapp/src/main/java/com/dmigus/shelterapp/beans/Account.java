@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="users")
-public class Konto {
+public class Account {
    @Id
    @Column(name = "id")
    @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +35,7 @@ public class Konto {
 
     @Override
     public String toString() {
-        return "Konto{" +
+        return "Account{" +
                 "id=" + id +
                 ", user='" + user + '\'' +
                 ", password='" + password + '\'' +
