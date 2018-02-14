@@ -11,9 +11,9 @@
 <body>
 
 <ul>
-    <li><a href="/dodaj">Dodaj Zwierzę</a></li>
-    <li><a href="/usun">Usuń Zwierzę</a></li>
-    <li><a href="/edycja">Edytuj</a></li>
+    <li><a href="/add">Dodaj Zwierzę</a></li>
+    <li><a href="/remove">Usuń Zwierzę</a></li>
+    <li><a href="/edit">Edytuj</a></li>
     <li style="float:right">
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Wyloguj"/>
@@ -43,14 +43,14 @@
                 <th>Opiekun</th>
                 <th>Zdjęcie</th>
             </tr>
-            <tr th:each="Zwierze : ${listaZ}">
-                <td th:text="${Zwierze.getId()}"></td>
-                <td th:text="${Zwierze.getImie()}"></td>
-                <td th:text="${Zwierze.getPlec()}"></td>
-                <td th:text="${Zwierze.getWiek()}"></td>
-                <td th:text="${Zwierze.getWaga()}"></td>
-                <td th:text="${Zwierze.getOpiekun()}"></td>
-                <td th:file="${Zwierze.getzdjecie())}"></td>
+            <tr th:each="Dog : ${listd}">
+                <td th:text="${Dog.getId()}"></td>
+                <td th:text="${Dog.getName()}"></td>
+                <td th:text="${Dog.getSex()}"></td>
+                <td th:text="${Dog.getAge()}"></td>
+                <td th:text="${Dog.getWeight()}"></td>
+                <td th:text="${Dog.getKeeper()}"></td>
+               <td th:file="${Dog.getPicture()}"></td>
 
             </tr>
         </table>

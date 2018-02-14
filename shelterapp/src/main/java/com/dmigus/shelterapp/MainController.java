@@ -1,10 +1,9 @@
 package com.dmigus.shelterapp;
 
-import com.dmigus.shelterapp.api.ZwierzeRepository;
-import com.dmigus.shelterapp.beans.Zwierze;
+import com.dmigus.shelterapp.api.DogRepository;
+import com.dmigus.shelterapp.beans.Dog;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,10 +12,10 @@ import java.util.List;
 @Controller
 
 public class MainController {
-    private final ZwierzeRepository zwierzeRepository;
+    private final DogRepository dogRepository;
 
-    public MainController(ZwierzeRepository zwierzeRepository) {
-        this.zwierzeRepository = zwierzeRepository;
+    public MainController(DogRepository dogRepository) {
+        this.dogRepository = dogRepository;
     }
 
 
@@ -30,52 +29,52 @@ public class MainController {
     @RequestMapping({"/index", "/"})
     public String index(Model model) {
 
-        List<Zwierze> listaZ = zwierzeRepository.findAll();
-        model.addAttribute("listaZ", listaZ);
+        List<Dog> listd = dogRepository.findAll();
+        model.addAttribute("listd", listd);
        return "index";}
 
-    @RequestMapping("/dodaj")
-    public String dodaj(Model model) {
-        model.addAttribute("zwierze", new Zwierze());
-        return "dodaj";
+    @RequestMapping("/add")
+    public String add(Model model) {
+        model.addAttribute("dog", new Dog());
+        return "add";
     }
 
-    @PostMapping("/dodaj")
-    public String dodajSubmit(@ModelAttribute Zwierze zwierze) {
+    @PostMapping("/add")
+    public String addSubmit(@ModelAttribute Dog dog) {
 
 
-        zwierzeRepository.save(zwierze);
+        dogRepository.save(dog);
         return "redirect:index";
     }
 
-    @GetMapping("/usun")
-    public String usun(Model model) {
+    @GetMapping("/remove")
+    public String remove(Model model) {
 
 
-        model.addAttribute("zwierze", new Zwierze());
-        return "usun";
+        model.addAttribute("dog", new Dog());
+        return "remove";
     }
 
 
-    @PostMapping("/usun")
-    public String usunSubmit(@ModelAttribute Zwierze zwierze) {
-        zwierzeRepository.delete(zwierze);
+    @PostMapping("/remove")
+    public String removeSubmit(@ModelAttribute Dog dog) {
+        dogRepository.delete(dog);
 
 
         return "redirect:index";
     }
 
-    @RequestMapping("/edycja")
-    public String edycja(Model model) {
+    @RequestMapping("/edit")
+    public String edit(Model model) {
 
 
-        model.addAttribute("zwierze", new Zwierze());
-        return "edycja";
+        model.addAttribute("dog", new Dog());
+        return "edit";
     }
 
-    @PostMapping("/edycja")
-    public String edycjaSubmit(@ModelAttribute Zwierze zwierze) {
-        zwierzeRepository.save(zwierze);
+    @PostMapping("/edit")
+    public String editSubmit(@ModelAttribute Dog dog) {
+        dogRepository.save(dog);
 
 
         return "redirect:index";
