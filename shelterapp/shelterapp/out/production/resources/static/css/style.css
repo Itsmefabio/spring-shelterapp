@@ -1,0 +1,125 @@
+
+.center_content {
+           position: relative;
+           background-color: CadetBlue;
+           border: 3px solid #73AD21;
+           margin: 200px;
+           padding: 20px 20px;
+           border: 3px solid green;
+           text-align: center;
+           font-family: "Arial Rounded MT Bold";
+
+       }
+
+h1, h2 {
+    text-align: center;
+    font-family: "Arial Rounded MT Bold";
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+input[type=password]:focus {
+    border: 3px solid #555;
+}
+
+input[type=text], select {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+}
+
+input[type=password], select {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+}
+
+input[type=submit]:hover {
+
+}
+
+input[type=submit] {
+    padding: 14px 80px;
+
+    font-size: 16px;
+}
+
+label {
+    font-size: 18px;
+    font-variant: small-caps;
+    text-align: right;
+}
+
+.center_content {
+    position: relative;
+    background-color: CadetBlue;
+    border: 3px solid #73AD21;
+    margin: 70px;
+    padding: 30px 30px;
+    border: 3px solid green;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    font-size: 16px;
+    font-variant: small-caps;
+    font-family: "Arial Rounded MT Bold";
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: CadetBlue;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+li a:hover:not(.active) {
+    background-color: #73AD21;
+}
+
+.active {
+    background-color: #73AD21;
+}
+
+input[type=submit]:hover {
+
+}
+
+input[type=submit] {
+    padding: 14px 25px;
+
+    font-size: 16px;
+}
+

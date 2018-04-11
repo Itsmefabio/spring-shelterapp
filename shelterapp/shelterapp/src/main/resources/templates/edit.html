@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link th:href="@{static/css/style.css}" rel="stylesheet" type="text/css"/>
+    <title>Edytuj istniejący wpis</title>
+</head>
+<body>
+
+<ul>
+    <li><a href="/add">dodaj Psa</a></li>
+    <li><a href="/remove">Usuń Psa</a></li>
+    <li><a href="/edit">Edytuj</a></li>
+    <li><a href="/contact">Kontakt</a></li>
+    <li style="float:right">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Wyloguj"/>
+        </form>
+    </li>
+</ul>
+<br/>
+<br/>
+<br/>
+<h1>Edytuj Informacje o Mieszkańcu</h1>
+
+<div class="center_content">
+
+    <form action="#" th:action="@{/edit}" th:object="${dog}" method="post">
+        <div class="label"><label for="id">Id: </label></div>
+        <input type="text" id="id" th:field="*{id}" placeholder="Podaj Id psa"/>
+        <div class="label"><label for="name">Imię: </label></div>
+        <input type="text" id="name" th:field="*{name}" placeholder="Podaj imię psa"/>
+        <!--th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name Error-->
+        <div class="label"><label for="sex">Płeć: </label></div>
+        <input type="text" id="sex" th:field="*{sex}" placeholder="Podaj płeć psa"/>
+        <div class="label"><label for="age">Wiek: </label></div>
+        <input type="text" id="age" th:field="*{age}" placeholder="Podaj age psa"/>
+        <div class="label"><label for="weight">Waga: </label></div>
+        <input type="text" id="weight" th:field="*{weight}" placeholder="Podaj Wagę psa"/>
+        <div class="label"><label for="keeper">Opiekun: </label></div>
+        <input type="text" id="keeper" th:field="*{keeper}"
+               placeholder="Podaj imię i nazwisko Przypisanego Opiekuna"/>
+        <p><input type="submit" value="Edytuj"/></p>
+    </form>
+    <br/>
+    <br/>
+
+</div>
+
+
+</body>
+</html>

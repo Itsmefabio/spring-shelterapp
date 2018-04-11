@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link th:href="@{static/css/style.css}" rel="stylesheet" type="text/css"/>
+    <title>Dodaj Zwierzę</title>
+</head>
+<body>
+<ul>
+    <li><a href="/add">Dodaj Zwierzę</a></li>
+    <li><a href="/remove">Usuń Zwierzę</a></li>
+    <li><a href="/edit">Edytuj</a></li>
+    <li><a href="/contact">Kontakt</a></li>
+    <li style="float:right">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Wyloguj"/>
+        </form>
+    </li>
+</ul>
+<br/>
+<br/>
+<br/>
+<h1>Kontakt ze Schroniskiem</h1>
+
+<div class="center_content">
+
+    <form action="#" th:action="@{/contact}" th:object="${mail}" method="post">
+
+
+        <div class="label"><label for="sender">Podaj swój adres email: </label></div>
+        <input type="text" id="sender" th:field="*{sender}" placeholder="Twój Email"/>
+
+        <div class="label"><label for="subject">Temat: </label></div>
+        <input type="text" id="subject" th:field="*{subject}" placeholder="Temat"/>
+        <div class="label"><label for="message">Treść wiadomości: </label></div>
+        <input type="text" id="message" th:field="*{message}" placeholder="treść wiadomości"/>
+
+
+        <p><input type="submit" value="Napisz Wiadomość"/></p>
+    </form>
+        <br/>
+        <br/>
+
+
+</div>
+
+</body>
+</html>
