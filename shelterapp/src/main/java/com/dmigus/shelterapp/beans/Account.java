@@ -3,13 +3,13 @@ package com.dmigus.shelterapp.beans;
 import javax.persistence.*;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class Account {
-   @Id
-   @Column(name = "id")
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-   @Column(name= "user")
+    @Column(name = "user")
     private String user;
     private String password;
 
@@ -33,6 +33,11 @@ public class Account {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -40,10 +45,5 @@ public class Account {
                 ", user='" + user + '\'' +
                 ", password='" + password + '\'' +
                 '}';
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-
     }
 }

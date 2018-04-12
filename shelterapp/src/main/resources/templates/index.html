@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="pl"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="pl">
 <head>
     <meta charset="UTF-8"/>
     <link th:href="@{static/css/style.css}" rel="stylesheet" type="text/css"/>
@@ -14,6 +14,7 @@
     <li><a href="/add">Dodaj Zwierzę</a></li>
     <li><a href="/remove">Usuń Zwierzę</a></li>
     <li><a href="/edit">Edytuj</a></li>
+    <li><a href="/contact">Kontakt</a></li>
     <li style="float:right">
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Wyloguj"/>
@@ -41,18 +42,20 @@
                 <th>Wiek</th>
                 <th>Waga</th>
                 <th>Opiekun</th>
-                <th>Zdjęcie</th>
+
             </tr>
-            <tr th:each="Dog : ${listd}">
+            <tr th:each="Dog : ${animalList}">
                 <td th:text="${Dog.getId()}"></td>
                 <td th:text="${Dog.getName()}"></td>
                 <td th:text="${Dog.getSex()}"></td>
                 <td th:text="${Dog.getAge()}"></td>
                 <td th:text="${Dog.getWeight()}"></td>
                 <td th:text="${Dog.getKeeper()}"></td>
-               <td th:file="${Dog.getPicture()}"></td>
+
 
             </tr>
+
+
         </table>
     </div>
 

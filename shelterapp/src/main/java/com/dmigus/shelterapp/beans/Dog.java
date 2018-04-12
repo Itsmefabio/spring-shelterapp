@@ -3,16 +3,32 @@ package com.dmigus.shelterapp.beans;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Arrays;
 
 
 @Entity
-@Table(name="dogs")
+@Table(name = "animals")
 public class Dog {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private Long id;
+    @NotNull
+    @Size(min = 2, max = 50)
+    private String name;
+    @NotNull
+    private String sex;
+    @NotNull
+    private double age;
+    @NotNull
+    private float weight;
+    @NotNull
+    @Size(min = 2, max = 50)
+    private String keeper;
+
     public Long getId() {
         return id;
     }
-
 
     public void setId(Long id) {
         this.id = id;
@@ -58,36 +74,6 @@ public class Dog {
         this.keeper = keeper;
     }
 
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
-    }
-
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private Long id;
-    @NotNull
-    @Size(min=2, max=50)
-    private String name;
-    @NotNull
-    private String sex;
-    @NotNull
-    private double age;
-    @NotNull
-    private float weight;
-    @NotNull
-    @Size(min=2, max=50)
-    private String keeper;
-    @Lob
-    @Column(name="picture")
-    private byte[] picture;
-
-
     @Override
     public String toString() {
         return "Dog{" +
@@ -97,7 +83,6 @@ public class Dog {
                 ", age=" + age +
                 ", weight=" + weight +
                 ", keeper='" + keeper + '\'' +
-                ", picture=" + Arrays.toString(picture) +
                 '}';
     }
 }
